@@ -1,10 +1,10 @@
 # ApplyBewerbung
 
 ## The steps are :
-###1.  Create ASP.NET Core Project
-###2.  Setup Domain Project
+### 1.  Create ASP.NET Core Project
+### 2.  Setup Domain Project
      2.1 Create the Aggregates, Entites, View Objects
-###3.  Setup Application Project
+### 3.  Setup Application Project
     | create Contracts for Persistense Layer 
       | IGeneric <T> ository - > that will be inhereted from IApplyRepository<A>will be implemented in Persistense layer
   3.0 Create the Dtos
@@ -17,7 +17,7 @@
   3.3  Using Fluent Validation
   3.4  Using Custom Response Types
   3.5   addingEntity Framework Core
-###4.  Setup Persistence Project.
+### 4.  Setup Persistence Project.
   4.1 Adding Repository Pattern  > implementing the repositories from App layer
   
 2:29:52 Implementing the Infrastructure Layer

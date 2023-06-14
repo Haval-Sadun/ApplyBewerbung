@@ -14,6 +14,8 @@ namespace ApplySys.Application.Profiles
         public MappingProfile() 
         {
             CreateMap<Apply,ApplyDto>().ReverseMap();
+            CreateMap<Apply,CreateApplyDto>().ReverseMap();
+            CreateMap<Apply,UpdateApplyDto>().ReverseMap();
         }
     }
 }

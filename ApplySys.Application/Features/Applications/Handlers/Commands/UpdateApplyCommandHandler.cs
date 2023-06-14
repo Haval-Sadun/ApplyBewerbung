@@ -26,8 +26,8 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
         {
             var validator = new UpdateApplyValidator();
             var validationResult = await validator.ValidateAsync(request.ApplyDto);
-
-            if (!validationResult.IsValid)
+                
+            if (validationResult.IsValid == false)
                 throw new VaildationException(validationResult);
 
             var apply = await _applyRepository.Get(request.ApplyDto.Id);

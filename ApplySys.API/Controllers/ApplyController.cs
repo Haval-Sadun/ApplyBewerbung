@@ -49,7 +49,9 @@ namespace ApplySys.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] UpdateApplyDto apply)
         {
-            await _mediator.Send(new UpdateApplyCommand { ApplyDto = apply });
+            var command = new UpdateApplyCommand { ApplyDto= apply };
+            await _mediator.Send(command);
+
             return NoContent();
         }
 

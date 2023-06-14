@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Requests.Commands
 {
-    public class DeleteApplyCommand : IRequest
+    public class DeleteApplyCommand : IRequest<Unit>
     {
         public int Id { get; set; }
     }

@@ -42,9 +42,12 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
             {
                 response.Success = false;
                 response.Message = "Creation Failed";
-                response.Errors = validatorResult.Errors.Select(e=> e.ErrorMessage).ToList();    
+                response.Errors = validatorResult.Errors.Select(e=> e.ErrorMessage).ToList();
+
+                return response;
             }
 
+            
             var apply = _mapper.Map<Apply>(request.ApplyDto);
             apply = await _applyRepository.Add(apply);
 

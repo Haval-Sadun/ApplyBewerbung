@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Handlers.Commands
 {
-    public class DeleteApplyCommandHandler : IRequestHandler<DeleteApplyCommand>
+    public class DeleteApplyCommandHandler : IRequestHandler<DeleteApplyCommand, Unit>
     {
         private readonly IApplyRepository _applyRepository;
         private readonly IMapper _mapper;
@@ -32,9 +32,5 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
             return Unit.Value;
         }
 
-        Task IRequestHandler<DeleteApplyCommand>.Handle(DeleteApplyCommand request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

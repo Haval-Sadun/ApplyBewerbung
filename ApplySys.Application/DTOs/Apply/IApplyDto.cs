@@ -4,8 +4,9 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using ApplySys.Application.DTOs.Common;
 
-namespace ApplySys.Application.DTOs.Common
+namespace ApplySys.Application.DTOs.Apply
 {
     public abstract class IApplyDto
     {

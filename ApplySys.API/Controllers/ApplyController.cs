@@ -28,7 +28,7 @@ namespace ApplySys.API.Controllers
 
         // GET api/<ApplyController>/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<ApplyDto>> Get(Guid id)
+        public async Task<ActionResult<ApplyDto>> Get(int id)
         {
             var apply = await _mediator.Send(new GetApplyDetailRequest { Id= id });
             return Ok(apply);
@@ -47,7 +47,7 @@ namespace ApplySys.API.Controllers
         //id is optional , we dont need it 
         // PUT api/<ApplyController>/5
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateApplyDto apply)
+        public async Task<ActionResult> Put(int id, [FromBody] UpdateApplyDto apply)
         {
             await _mediator.Send(new UpdateApplyCommand { ApplyDto = apply });
             return NoContent();
@@ -55,7 +55,7 @@ namespace ApplySys.API.Controllers
 
         // DELETE api/<ApplyController>/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult> Delete(Guid id)
+        public async Task<ActionResult> Delete(int id)
         {
             await _mediator.Send(new DeleteApplyCommand { Id= id });    
             return NoContent();

@@ -35,7 +35,7 @@ namespace ApplySys.Persistence.Repositories
             return entity != null;
         }
 
-        public virtual async Task<T> Get(int id)
+        public async Task<T> Get(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }

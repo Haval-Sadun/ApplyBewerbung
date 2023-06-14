@@ -13,6 +13,7 @@ namespace ApplySys.Application.DTOs.Apply.Validators
         public CreateApplyDtoValidator()
         {
             Include(new IApplyDtoValidator());
+
         }
     }
 }

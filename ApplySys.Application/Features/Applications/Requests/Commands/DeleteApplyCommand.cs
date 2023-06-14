@@ -9,6 +9,6 @@ namespace ApplySys.Application.Features.Applications.Requests.Commands
 {
     public class DeleteApplyCommand : IRequest
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

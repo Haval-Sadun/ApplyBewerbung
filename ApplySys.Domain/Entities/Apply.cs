@@ -15,8 +15,9 @@ namespace ApplySys.Domain.Entities
         public string CompanyName { get; set; }
         public jobType JobType { get; set; }
         public state State { get; set; }
-        public DateTime Date { get; set; }
         public string Link { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime LastModifiedDate { get; set; } 
     }
 }
 

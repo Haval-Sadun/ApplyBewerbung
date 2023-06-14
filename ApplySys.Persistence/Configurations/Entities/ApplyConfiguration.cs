@@ -20,7 +20,7 @@ namespace ApplySys.Persistence.Configurations.Entities
                         Id = 2,
                         Title = "Softwareentwickler",
                         CompanyName = "Xitaso",
-                        Date = DateTime.Now,
+                        DateCreated = DateTime.Now,
                         JobType = jobType.fullTime,
                         Link = "hier goes the link ",
                         State = state.inProgress

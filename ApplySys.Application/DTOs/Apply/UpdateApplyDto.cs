@@ -1,5 +1,4 @@
-﻿using ApplySys.Application.DTOs.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,5 +10,7 @@ namespace ApplySys.Application.DTOs.Apply
     {
 
         public int Id { get; set; }
+        public DateTime LastModifiedDate { get; set; }
+
     }
 }

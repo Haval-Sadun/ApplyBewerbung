@@ -18,16 +18,17 @@ namespace ApplySys.Persistence
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(ApplyManagementDbContext).Assembly);
+            base.OnModelCreating(modelBuilder);
         }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {
-           /* foreach (var entry in ChangeTracker.Entries<BaseDomainEntity>())
+            foreach (var entry in ChangeTracker.Entries<Apply>())
             {
                 entry.Entity.LastModifiedDate = DateTime.Now;
                 if(entry.State == EntityState.Added)
                     entry.Entity.DateCreated = DateTime.Now;
-            }*/ 
+            }
 
             return base.SaveChangesAsync(cancellationToken);
         }

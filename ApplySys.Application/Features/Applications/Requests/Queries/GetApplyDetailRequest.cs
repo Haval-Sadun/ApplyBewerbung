@@ -10,6 +10,6 @@ namespace ApplySys.Application.Features.Applications.Requests.Queries
 {
     public class GetApplyDetailRequest : IRequest<ApplyDto>
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }

@@ -12,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Handlers.Commands
 {
-    public class UpdateApplyRequestHandler : IRequestHandler<UpdateApplyRequest, Unit>
+    public class UpdateApplyCommandHandler : IRequestHandler<UpdateApplyCommand, Unit>
     {
         private readonly IApplyRepository _applyRepository;
         private readonly IMapper _mapper;
 
-        public UpdateApplyRequestHandler(IApplyRepository applyRepository, IMapper mapper)
+        public UpdateApplyCommandHandler(IApplyRepository applyRepository, IMapper mapper)
         {
             _applyRepository = applyRepository;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(UpdateApplyRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateApplyCommand request, CancellationToken cancellationToken)
         {
             var validator = new UpdateApplyValidator();
             var validationResult = await validator.ValidateAsync(request.ApplyDto);

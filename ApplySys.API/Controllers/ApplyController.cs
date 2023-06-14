@@ -38,7 +38,7 @@ namespace ApplySys.API.Controllers
         [HttpPost]
         public async Task<ActionResult> Post([FromBody] CreateApplyDto apply)
         {
-            var command =  new CreateApplyRequest { ApplyDto= apply };
+            var command =  new CreateApplyCommand { ApplyDto= apply };
             var response = await _mediator.Send(command);
 
             return Ok(response);
@@ -49,7 +49,7 @@ namespace ApplySys.API.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(Guid id, [FromBody] UpdateApplyDto apply)
         {
-            await _mediator.Send(new UpdateApplyRequest { ApplyDto = apply });
+            await _mediator.Send(new UpdateApplyCommand { ApplyDto = apply });
             return NoContent();
         }
 
@@ -57,7 +57,7 @@ namespace ApplySys.API.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
-            await _mediator.Send(new DeleteApplyRequest { Id= id });    
+            await _mediator.Send(new DeleteApplyCommand { Id= id });    
             return NoContent();
         }
     }

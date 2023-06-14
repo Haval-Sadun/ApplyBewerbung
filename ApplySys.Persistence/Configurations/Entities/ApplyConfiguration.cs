@@ -17,7 +17,7 @@ namespace ApplySys.Persistence.Configurations.Entities
             _ = builder.HasData(
                     new Apply
                     {
-                        Id = new Guid("5fb7097c-335c-4d07-b4fd-000004e2d28c"),
+                        Id = 2,
                         Title = "Softwareentwickler",
                         CompanyName = "Xitaso",
                         Date = DateTime.Now,

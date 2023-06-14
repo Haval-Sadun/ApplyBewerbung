@@ -11,17 +11,17 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Handlers.Commands
 {
-    public class DeleteApplyRequestHandler : IRequestHandler<DeleteApplyRequest>
+    public class DeleteApplyCommandHandler : IRequestHandler<DeleteApplyCommand>
     {
         private readonly IApplyRepository _applyRepository;
         private readonly IMapper _mapper;
 
-        public DeleteApplyRequestHandler(IApplyRepository applyRepository, IMapper mapper)
+        public DeleteApplyCommandHandler(IApplyRepository applyRepository, IMapper mapper)
         {
             _applyRepository = applyRepository;
             _mapper = mapper;
         }
-        public async Task<Unit> Handle(DeleteApplyRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(DeleteApplyCommand request, CancellationToken cancellationToken)
         {
             var apply = await _applyRepository.Get(request.Id);
 
@@ -32,7 +32,7 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
             return Unit.Value;
         }
 
-        Task IRequestHandler<DeleteApplyRequest>.Handle(DeleteApplyRequest request, CancellationToken cancellationToken)
+        Task IRequestHandler<DeleteApplyCommand>.Handle(DeleteApplyCommand request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

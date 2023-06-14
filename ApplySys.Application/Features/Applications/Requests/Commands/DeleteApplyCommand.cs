@@ -1,5 +1,4 @@
-﻿using ApplySys.Application.DTOs.Apply;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Requests.Commands
 {
-    public class UpdateApplyRequest: IRequest<Unit>
+    public class DeleteApplyCommand : IRequest
     {
-        public UpdateApplyDto ApplyDto { get; set; }
+        public Guid Id { get; set; }
     }
 }

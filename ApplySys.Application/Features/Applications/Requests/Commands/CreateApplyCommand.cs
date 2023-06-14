@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ApplySys.Application.Features.Applications.Requests.Commands
 {
-    public class CreateApplyRequest : IRequest<BaseCommandResponse>
+    public class CreateApplyCommand : IRequest<BaseCommandResponse>
     {
         public CreateApplyDto ApplyDto { get; set; }
     }

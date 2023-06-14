@@ -18,13 +18,13 @@ using ApplySys.Application.Models;
 
 namespace ApplySys.Application.Features.Applications.Handlers.Commands
 {
-    public class CreateApplyRequestHandler : IRequestHandler<CreateApplyRequest, BaseCommandResponse>
+    public class CreateApplyCommandHandler : IRequestHandler<CreateApplyCommand, BaseCommandResponse>
     {
         private readonly IApplyRepository _applyRepository;
         private readonly IMapper _mapper;
         private readonly IEmailSender _emailSender;
 
-        public CreateApplyRequestHandler(IApplyRepository applyRepository, IMapper mapper, IEmailSender emailSender)
+        public CreateApplyCommandHandler(IApplyRepository applyRepository, IMapper mapper, IEmailSender emailSender)
         {
             _applyRepository = applyRepository;
             _mapper = mapper;
@@ -32,7 +32,7 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
         }
 
 
-        public async Task<BaseCommandResponse> Handle(CreateApplyRequest request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse> Handle(CreateApplyCommand request, CancellationToken cancellationToken)
         {
             var response = new BaseCommandResponse();
 

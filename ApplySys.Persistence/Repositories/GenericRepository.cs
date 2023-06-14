@@ -29,13 +29,13 @@ namespace ApplySys.Persistence.Repositories
             await _dbContext.SaveChangesAsync();
         }
 
-        public async Task<bool> Exists(Guid id)
+        public async Task<bool> Exists(int id)
         {
             var entity = await Get(id);
             return entity != null;
         }
 
-        public virtual async Task<T> Get(Guid id)
+        public virtual async Task<T> Get(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
         }

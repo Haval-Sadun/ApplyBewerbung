@@ -1,24 +1,28 @@
 # ApplyBewerbung
 
 ## The steps are :
-### 1.  Create ASP.NET Core Project
-### 2.  Setup Domain Project
-     2.1 Create the Aggregates, Entites, View Objects
-### 3.  Setup Application Project
-    | create Contracts for Persistense Layer 
-      | IGeneric <T> ository - > that will be inhereted from IApplyRepository<A>will be implemented in Persistense layer
-  3.0 Create the Dtos
-  3.1  Setup AutoMapper
-      package name : AutoMapper.Extensions.Microsoft.DependencyInjection
-      | Create Profile
-  3.2  Add DependencyInjection > Class to be used in the Api (we any Package we added to app to DependencyInj)
-  3.3  Adding MediatR and CQRS
-      | in this steps we Add the Featue - Entities - Request/Handlers
-  3.3  Using Fluent Validation
-  3.4  Using Custom Response Types
-  3.5   addingEntity Framework Core
-### 4.  Setup Persistence Project.
-  4.1 Adding Repository Pattern  > implementing the repositories from App layer
+ 1.  Create ASP.NET Core Project
+ 2. Setup Domain Project
+    - Create the Aggregates, Entites, View Objects
+ 3. Setup Application Project
+    - create Contracts   
+      - IGeneric<T> Repository for Persistense Layer
+     > that will be inhereted from IApplyRepository<Apply>, that will be implemented in **Persistense layer**
+      - IEmailSender 
+     > for the **Infrastructure Layer** to impolement
+    - Create the Dtos
+    - Setup `AutoMapper`
+     > package name : `AutoMapper.Extensions.Microsoft.DependencyInjection` 
+    - Create Profile
+    - Add DependencyInjection 
+     > Class to be used in the Api (we any Package we added to app to DependencyInj)
+    - Adding MediatR and CQRS
+     > in this steps we Add the Featue - Entities - Request/Handlers
+    -  Using Fluent Validation
+    -  Using Custom Response Types
+    -  Adding Entity Framework Core
+  4. Setup Persistence Project.
+     - Adding Repository Pattern  > implementing the repositories from App layer
   
 2:29:52 Implementing the Infrastructure Layer
 2:45:52 Adding API Project (.NET 6)

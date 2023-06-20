@@ -38,39 +38,41 @@ namespace ApplySys.Application.Features.Applications.Handlers.Commands
 
             var validator = new CreateApplyDtoValidator();
             var validatorResult = await validator.ValidateAsync(request.ApplyDto);
+
             if (validatorResult.IsValid == false)
             {
                 response.Success = false;
                 response.Message = "Creation Failed";
                 response.Errors = validatorResult.Errors.Select(e=> e.ErrorMessage).ToList();
 
-                return response;
             }
-
-            
-            var apply = _mapper.Map<Apply>(request.ApplyDto);
-            apply = await _applyRepository.Add(apply);
-
-            response.Success = true;
-            response.Message = "Creation Successful";
-            response.Id = apply.Id;
-
-            var email = new Email
+            else
             {
-                To = "employee@gmail.com",
-                Subject = "Apply Submitted",
-                Body = $" your apply for {request.ApplyDto.Title} is successfully submitted"
-            };
-            try
-            {
-                await _emailSender.SendEmailAsync(email);
-            }
-            catch (Exception ex)
-            {
+                var apply = _mapper.Map<Apply>(request.ApplyDto);
+                apply = await _applyRepository.Add(apply);
 
+                response.Success = true;
+                response.Message = "Creation Successful";
+                response.Id = apply.Id;
             }
 
             return response;
         }
     }
 }
+
+
+            //var email = new Email
+            //{
+            //    To = "employee@gmail.com",
+            //    Subject = "Apply Submitted",
+            //    Body = $" your apply for {request.ApplyDto.Title} is successfully submitted"
+            //};
+            //try
+            //{
+            //    await _emailSender.SendEmailAsync(email);
+            //}
+            //catch (Exception ex)
+            //{
+
+            //}

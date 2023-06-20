@@ -1,7 +1,9 @@
 ﻿using ApplySys.Application.DTOs.Apply;
 using ApplySys.Application.Features.Applications.Requests.Commands;
 using ApplySys.Application.Features.Applications.Requests.Queries;
+using ApplySys.Application.Responses;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,6 +12,7 @@ namespace ApplySys.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
     public class ApplyController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -18,8 +21,10 @@ namespace ApplySys.API.Controllers
         {
             _mediator = mediator;
         }
+
         // GET: api/<ApplyController>
         [HttpGet]
+        [Authorize]
         public async Task<ActionResult<List<ApplyDto>>> Get()
         {
             var apply = await _mediator.Send(new GetApplyListRequest());
@@ -36,7 +41,9 @@ namespace ApplySys.API.Controllers
 
         // POST api/<ApplyController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateApplyDto apply)
+        [ProducesResponseType(200)]
+        [ProducesResponseType(400)]
+        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateApplyDto apply)
         {
             var command =  new CreateApplyCommand { ApplyDto= apply };
             var response = await _mediator.Send(command);
@@ -47,6 +54,9 @@ namespace ApplySys.API.Controllers
         //id is optional , we dont need it 
         // PUT api/<ApplyController>/5
         [HttpPut("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult> Put(int id, [FromBody] UpdateApplyDto apply)
         {
             var command = new UpdateApplyCommand { ApplyDto= apply };
@@ -57,6 +67,9 @@ namespace ApplySys.API.Controllers
 
         // DELETE api/<ApplyController>/5
         [HttpDelete("{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesDefaultResponseType]
         public async Task<ActionResult> Delete(int id)
         {
             await _mediator.Send(new DeleteApplyCommand { Id= id });    

@@ -14,7 +14,7 @@ namespace ApplySys.Persistence
 {
     public static class PersistenceServicesRegisteration
     {
-        public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddPersistenceServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplyManagementDbContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("ApplySysConnectionString")));

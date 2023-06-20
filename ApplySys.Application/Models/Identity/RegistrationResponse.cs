@@ -5,10 +5,10 @@ using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApplySys.Application.DTOs.Apply
+namespace ApplySys.Application.Models.Identity
 {
-    public class CreateApplyDto : IApplyDto
+    public class RegistrationResponse
     {
-        public DateTime DateCreated { get; set; } = DateTime.Now;
+        public string UserId { get; set; }
     }
 }

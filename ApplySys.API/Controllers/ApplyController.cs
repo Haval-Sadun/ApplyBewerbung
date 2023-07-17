@@ -12,7 +12,7 @@ namespace ApplySys.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [Authorize]
     public class ApplyController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -24,7 +24,6 @@ namespace ApplySys.API.Controllers
 
         // GET: api/<ApplyController>
         [HttpGet]
-        [Authorize]
         public async Task<ActionResult<List<ApplyDto>>> Get()
         {
             var apply = await _mediator.Send(new GetApplyListRequest());

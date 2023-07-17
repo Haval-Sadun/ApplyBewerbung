@@ -1,9 +1,7 @@
 using ApplySys.Application;
 using ApplySys.Infrastructure;
 using ApplySys.Persistence;
-using ApplySys.Identity;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.Configuration;
+using Keycloak.AuthServices.Authentication;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,20 +10,28 @@ builder.Services.AddHttpContextAccessor();
 
 AddSwaggerDoc(builder.Services);
 
+var host = builder.Host;
+var configuration = builder.Configuration;
+var services = builder.Services;
 
 
 // Add services to the container.
-builder.Services.AddApplication();
-builder.Services.AddInfrastructureServices(builder.Configuration);
-builder.Services.AddPersistenceServices(builder.Configuration);
-builder.Services.AddIdentityServices(builder.Configuration);
+services.AddApplication();
+services.AddInfrastructureServices(configuration);
+services.AddPersistenceServices(configuration);
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
+services.AddKeycloakAuthentication(configuration, o =>
+{
+    o.RequireHttpsMetadata = false;
+    o.Audience = "account";
+});
 
-builder.Services.AddControllers();
+services.AddControllers();
+services.AddEndpointsApiExplorer();
 
-builder.Services.AddCors(o =>
+services.AddControllers();
+
+services.AddCors(o =>
 {
     o.AddPolicy("CorsPolicy",
         builder => builder.AllowAnyOrigin()
@@ -51,7 +57,7 @@ app.UseDeveloperExceptionPage();
 app.UseHttpsRedirection();
 app.UseRouting();
 
-app.UseAuthorization();
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors("CorsPolicy");

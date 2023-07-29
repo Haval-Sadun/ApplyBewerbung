@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ApplySys.Application\ApplySys.Application.csproj" />
-    <ProjectReference Include="..\ApplySys.Identity\ApplySys.Identity.csproj" />
     <ProjectReference Include="..\ApplySys.Infrastructure\ApplySys.Infrastructure.csproj" />
     <ProjectReference Include="..\ApplySys.Persistence\ApplySys.Persistence.csproj" />
   </ItemGroup>

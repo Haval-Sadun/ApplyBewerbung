@@ -2,10 +2,6 @@ using ApplySys.Application;
 using ApplySys.Infrastructure;
 using ApplySys.Persistence;
 using Keycloak.AuthServices.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.OpenIdConnect;
-using Microsoft.IdentityModel.Protocols.OpenIdConnect;
-using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
